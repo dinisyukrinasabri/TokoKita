@@ -11,8 +11,8 @@ class Pelanggan extends Controller
 	}
 	public function index()
 	{
-		$data['title'] = 'Data Barang';
-		// $data['barang'] = $this->model('BarangModel')->getAllBarang();
+		$data['title'] = 'Data Pelanggan';
+		$data['pelanggan'] = $this->model('PelangganModel')->getAllPelanggan();
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
 		$this->view('pelanggan/index', $data);

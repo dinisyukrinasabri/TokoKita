@@ -20,19 +20,21 @@
                                       <th>No. HP</th>
                                       <th>Alamat</th>
                                       <th>ID Akses</th>
+                                      <th>Aksi</th>
                                   </tr>
                               </thead>
                               <tbody class="table-border-bottom-0">
                                   <tr>
                                       <?php
-                                        foreach ($data['barang'] as $key => $data) {
+                                        foreach ($data['pelanggan'] as $key => $data) {
                                         ?>
-                                          <td> <?= $key + 1 ?> </td>
-                                          <td> <?= $data["IdBarang"] ?> </td>
-                                          <td> <?= $data["NamaBarang"] ?> </td>
-                                          <td> <?= $data["Keterangan"] ?> </td>
-                                          <td> <?= $data["Satuan"] ?> </td>
-                                          <!-- <td> <?= $data["NamaPengguna"] ?> </td> -->
+                                          <td> <?= $data["IdPelanggan"] ?> </td>
+                                          <td> <?= $data["NamaPelanggan"] ?> </td>
+                                          <td> <?= $data["NamaDepan"] ?> </td>
+                                          <td> <?= $data["NamaBelakang"] ?> </td>
+                                          <td> <?= $data["NoHP"] ?> </td>
+                                          <td> <?= $data["Alamat"] ?> </td>
+                                          <td> <?= $data["IdAkses"] ?> </td>
                                           <td>
                                               <div class="dropdown">
                                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
