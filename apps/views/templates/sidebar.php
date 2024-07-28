@@ -56,6 +56,18 @@
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div class="text-truncate" data-i18n="Barang">Barang</div>
             </a>
+            <a href="<?= base_url; ?>/pelanggan" class=" menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div class="text-truncate" data-i18n="Pelanggan">Pelanggan</div>
+            </a>
+            <a href="<?= base_url; ?>/penjualan" class=" menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div class="text-truncate" data-i18n="Penjualan">Penjualan</div>
+            </a>
+            <a href="<?= base_url; ?>/pembelian" class=" menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div class="text-truncate" data-i18n="Pembelian">Pembelian</div>
+            </a>
         </li>
     </ul>
 </aside>
