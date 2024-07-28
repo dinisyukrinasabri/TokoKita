@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 28, 2024 at 06:10 AM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Jul 28, 2024 at 12:02 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,12 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `IdBarang` int NOT NULL,
+  `IdBarang` int(11) NOT NULL,
   `NamaBarang` varchar(50) DEFAULT NULL,
-  `Keterangan` text,
+  `Keterangan` text DEFAULT NULL,
   `Satuan` varchar(50) DEFAULT NULL,
-  `IdPengguna` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `IdPengguna` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`IdBarang`, `NamaBarang`, `Keterangan`, `Satuan`, `IdPengguna`) VALUES
+(2, 'Laptop asus A445L', 'Asus A455LDB core i7', '1 PCS', 2);
 
 -- --------------------------------------------------------
 
@@ -42,17 +49,26 @@ CREATE TABLE `barang` (
 --
 
 CREATE TABLE `hakakses` (
-  `IdAkses` int NOT NULL,
+  `IdAkses` int(11) NOT NULL,
   `NamaAkses` varchar(50) DEFAULT NULL,
-  `Keterangan` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Keterangan` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hakakses`
 --
 
 INSERT INTO `hakakses` (`IdAkses`, `NamaAkses`, `Keterangan`) VALUES
-(1, 'SuperAdmin', 'Memiliki hak akses penuh aplikasi');
+(1, 'Admin', 'Mengelola aplikasi dan memiliki akses penuh'),
+(2, 'Owner', 'Pemilik toko'),
+(3, 'Manager', 'Pengelola dan management pengguna'),
+(4, 'Finance', 'Mengelola keuangan toko'),
+(5, 'Inventory', 'Mengelola persediaan atau gudang'),
+(6, 'Marketing', 'Mengelola pemasaran dan penjualan'),
+(7, 'Supplier', 'Pemasok barang atau kebutuhan toko'),
+(9, 'Karyawan', 'Pekerja toko'),
+(10, 'Customer', 'Pelanggan toko'),
+(14, 'Super Admin', 'Memiliki hak akses penuh aplikasi');
 
 -- --------------------------------------------------------
 
@@ -61,14 +77,14 @@ INSERT INTO `hakakses` (`IdAkses`, `NamaAkses`, `Keterangan`) VALUES
 --
 
 CREATE TABLE `pelanggan` (
-  `IdPelanggan` int NOT NULL,
+  `IdPelanggan` int(11) NOT NULL,
   `NamaPelanggan` varchar(50) NOT NULL,
   `NamaDepan` varchar(25) DEFAULT NULL,
   `NamaBelakang` varchar(25) DEFAULT NULL,
   `NoHP` varchar(15) DEFAULT NULL,
   `Alamat` varchar(100) DEFAULT NULL,
-  `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `IdAkses` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -77,12 +93,12 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `pembelian` (
-  `IdPembelian` int NOT NULL,
-  `JumlahPembelian` int DEFAULT NULL,
+  `IdPembelian` int(11) NOT NULL,
+  `JumlahPembelian` int(11) DEFAULT NULL,
   `HargaBeli` double DEFAULT NULL,
-  `IdPengguna` int DEFAULT NULL,
-  `IdBarang` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `IdPengguna` int(11) DEFAULT NULL,
+  `IdBarang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -91,22 +107,23 @@ CREATE TABLE `pembelian` (
 --
 
 CREATE TABLE `pengguna` (
-  `IdPengguna` int NOT NULL,
+  `IdPengguna` int(11) NOT NULL,
   `NamaPengguna` varchar(50) DEFAULT NULL,
   `Password` varchar(255) DEFAULT NULL,
   `NamaDepan` varchar(50) DEFAULT NULL,
   `NamaBelakang` varchar(50) DEFAULT NULL,
   `NoHP` varchar(15) DEFAULT NULL,
-  `Alamat` text,
-  `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Alamat` text DEFAULT NULL,
+  `IdAkses` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`IdPengguna`, `NamaPengguna`, `Password`, `NamaDepan`, `NamaBelakang`, `NoHP`, `Alamat`, `IdAkses`) VALUES
-(1, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'super', 'admin', NULL, NULL, 1);
+(1, 'superadmin', '17c4520f6cfd1ab53d8745e84681eb49', 'SUper', 'Man', NULL, NULL, 14),
+(2, 'dinisyukrinas', '4297f44b13955235245b2497399d7a93', 'Dini Syukrina', 'Sabri', '0888', 'Padang', 7);
 
 -- --------------------------------------------------------
 
@@ -115,12 +132,12 @@ INSERT INTO `pengguna` (`IdPengguna`, `NamaPengguna`, `Password`, `NamaDepan`, `
 --
 
 CREATE TABLE `penjualan` (
-  `IdPenjualan` int NOT NULL,
-  `JumlahPenjualan` int DEFAULT NULL,
+  `IdPenjualan` int(11) NOT NULL,
+  `JumlahPenjualan` int(11) DEFAULT NULL,
   `HargaJual` double DEFAULT NULL,
-  `IdPengguna` int DEFAULT NULL,
-  `IdBarang` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `IdPengguna` int(11) DEFAULT NULL,
+  `IdBarang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,13 +146,13 @@ CREATE TABLE `penjualan` (
 --
 
 CREATE TABLE `supplier` (
-  `IdSupplier` int NOT NULL,
+  `IdSupplier` int(11) NOT NULL,
   `NamaSupplier` varchar(50) NOT NULL,
   `Email` varchar(25) DEFAULT NULL,
   `NoHP` varchar(15) DEFAULT NULL,
   `Alamat` varchar(100) DEFAULT NULL,
-  `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `IdAkses` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -199,43 +216,43 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `IdBarang` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hakakses`
 --
 ALTER TABLE `hakakses`
-  MODIFY `IdAkses` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdAkses` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `IdPelanggan` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdPelanggan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `IdPembelian` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdPembelian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `IdPengguna` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `IdPenjualan` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdPenjualan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `IdSupplier` int NOT NULL AUTO_INCREMENT;
+  MODIFY `IdSupplier` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
