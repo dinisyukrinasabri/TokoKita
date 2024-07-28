@@ -32,22 +32,23 @@ class Penjualan extends Controller
 	public function tambah()
 	{
 		$data['title'] = 'Tambah Pelanggan';
-		// $data['pelanggan'] = $this->model('PelangganModel')->getAllSupplier();
+		$data['pengguna'] = $this->model('PenggunaModel')->getAllSupplier();
+		$data['barang'] = $this->model('BarangModel')->getAllBarang();
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
-		$this->view('pelanggan/create', $data);
+		$this->view('penjualan/create', $data);
 		$this->view('templates/footer');
 	}
 
-	public function simpanPelanggan()
+	public function simpanPenjualan()
 	{
-		if ($this->model('PelangganModel')->tambahPelanggan($_POST) > 0) {
+		if ($this->model('PenjualanModel')->tambahPenjualan($_POST) > 0) {
 			Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-			header('location: ' . base_url . '/pelanggan');
+			header('location: ' . base_url . '/penjualan');
 			exit;
 		} else {
 			Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-			header('location: ' . base_url . '/pelanggan');
+			header('location: ' . base_url . '/penjualan');
 			exit;
 		}
 	}

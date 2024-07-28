@@ -4,7 +4,7 @@
                   <!-- Basic Bootstrap Table -->
                   <div class="card">
                       <h5 class="card-header">
-                          <a href="<?= base_url; ?>/pelanggan/tambah" class="btn rounded-pill btn-primary">
+                          <a href="<?= base_url; ?>/penjualan/tambah" class="btn rounded-pill btn-primary">
                               <i class="tf-icons bx bx-plus bx-18px me-2"></i>Add</button>
                           </a>
                           Table Penjualan
