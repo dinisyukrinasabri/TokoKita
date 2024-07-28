@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_store`
+-- Database: `tokokita`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `barang` (
   `Keterangan` text,
   `Satuan` varchar(50) DEFAULT NULL,
   `IdPengguna` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `hakakses` (
   `IdAkses` int NOT NULL,
   `NamaAkses` varchar(50) DEFAULT NULL,
   `Keterangan` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `hakakses`
@@ -68,7 +68,7 @@ CREATE TABLE `pelanggan` (
   `NoHP` varchar(15) DEFAULT NULL,
   `Alamat` varchar(100) DEFAULT NULL,
   `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `pembelian` (
   `HargaBeli` double DEFAULT NULL,
   `IdPengguna` int DEFAULT NULL,
   `IdBarang` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE `pengguna` (
   `NoHP` varchar(15) DEFAULT NULL,
   `Alamat` text,
   `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengguna`
@@ -120,7 +120,7 @@ CREATE TABLE `penjualan` (
   `HargaJual` double DEFAULT NULL,
   `IdPengguna` int DEFAULT NULL,
   `IdBarang` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,7 @@ CREATE TABLE `supplier` (
   `NoHP` varchar(15) DEFAULT NULL,
   `Alamat` varchar(100) DEFAULT NULL,
   `IdAkses` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables

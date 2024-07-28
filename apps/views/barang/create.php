@@ -33,7 +33,7 @@
                               <div class="row mb-6">
                                   <label class="col-sm-2 col-form-label" for="basic-default-nama-pengguna">Nama Pengguna</label>
                                   <div class="col-sm-10">
-                                      <select id="IdPengguna" class="form-select">
+                                      <select id="idpengguna" name="IdPengguna" class="form-select">
                                           <option value="#">Pilih Pengguna</option>
                                           <?php foreach ($data['pengguna'] as $row) : ?>
                                               <option value="<?= $row['IdPengguna']; ?>"><?= $row['NamaPengguna']; ?></option>

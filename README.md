@@ -4,6 +4,8 @@ Anggota Kelompo 8 :
 
 - Dini Syukrina Sabri (2702466170)
 - Ayu Vadia Putri (2702469102)
+- Ageng Ayu (2702467961)
+- Bintang Dwi Egatara (2702467305)
 
 How To Run :
 
