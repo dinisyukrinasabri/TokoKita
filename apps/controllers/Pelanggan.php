@@ -21,13 +21,12 @@ class Pelanggan extends Controller
 
 	public function edit($id)
 	{
-		// $data['title'] = 'Edit Barang';
-		// $data['barang'] = $this->model('BarangModel')->getBarangById($id);
-		// $data['pengguna'] = $this->model('PenggunaModel')->getAllSupplier();
-		// $this->view('templates/header', $data);
-		// $this->view('templates/sidebar', $data);
-		// $this->view('barang/edit', $data);
-		// $this->view('templates/footer');
+		$data['title'] = 'Edit Pelanggan';
+		$data['pelanggan'] = $this->model('PelangganModel')->getPelangganById($id);
+		$this->view('templates/header', $data);
+		$this->view('templates/sidebar', $data);
+		$this->view('pelanggan/edit', $data);
+		$this->view('templates/footer');
 	}
 
 	public function tambah()
@@ -53,17 +52,17 @@ class Pelanggan extends Controller
 		}
 	}
 
-	public function updateBarang()
+	public function updatePelanggan()
 	{
-		// if ($this->model('BarangModel')->updateDataBarang($_POST) > 0) {
-		// 	Flasher::setMessage('Berhasil', 'diupdate', 'success');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// } else {
-		// 	Flasher::setMessage('Gagal', 'diupdate', 'danger');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// }
+		if ($this->model('PelangganModel')->updateDataPelanggan($_POST) > 0) {
+			Flasher::setMessage('Berhasil', 'diupdate', 'success');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		} else {
+			Flasher::setMessage('Gagal', 'diupdate', 'danger');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		}
 	}
 
 	public function hapus($id)
