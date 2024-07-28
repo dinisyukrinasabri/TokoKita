@@ -12,15 +12,15 @@
                       <div class="card-body">
                           <form role="form" action="<?= base_url; ?>/pembelian/simpanPembelian" method="POST" enctype="multipart/form-data">
                           <div class="row mb-6">
-                                  <label class="col-sm-2 col-form-label" for="basic-default-satuan">Jumlah Penjualan</label>
+                                  <label class="col-sm-2 col-form-label" for="basic-default-satuan">Jumlah Pembelian</label>
                                   <div class="col-sm-10">
-                                      <input type="text" name="JumlahPenjualan" class="form-control" id="basic-default-satuan" placeholder="Jumlah Penjualan ..." required>
+                                      <input type="text" name="JumlahPembelian" class="form-control" id="basic-default-satuan" placeholder="Jumlah Pembelian ..." required>
                                   </div>
                               </div>
                               <div class="row mb-6">
-                                  <label class="col-sm-2 col-form-label" for="basic-default-keterangan">Harga Jual</label>
+                                  <label class="col-sm-2 col-form-label" for="basic-default-keterangan">Harga Beli</label>
                                   <div class="col-sm-10">
-                                      <textarea name="HargaJual" id="basic-default-keterangan" class="form-control" placeholder="Harga Jual ..." aria-label="Nama Depan ..." aria-describedby="basic-icon-default-keterangan2" required></textarea>
+                                      <textarea name="HargaBeli" id="basic-default-keterangan" class="form-control" placeholder="Harga Beli ..." aria-label="Nama Depan ..." aria-describedby="basic-icon-default-keterangan2" required></textarea>
                                   </div>
                               </div>
 

@@ -35,13 +35,13 @@ class PembelianModel {
 		return $this->db->single();
 	}
 
-	public function tambahPenjualan($data)
+	public function tambahPembelian($data)
 	{
-		$query = "INSERT INTO penjualan (IdPenjualan,JumlahPenjualan,HargaJual,IdPengguna,IdBarang) VALUES(:IdPenjualan,:JumlahPenjualan,:HargaJual,:IdPengguna,:IdBarang)";
+		$query = "INSERT INTO pembelian (IdPembelian,JumlahPembelian,HargaBeli,IdPengguna,IdBarang) VALUES(:IdPembelian,:JumlahPembelian,:HargaBeli,:IdPengguna,:IdBarang)";
 		$this->db->query($query);
-		$this->db->bind('IdPenjualan',$data['IdPenjualan']);
-		$this->db->bind('JumlahPenjualan', $data['JumlahPenjualan']);
-		$this->db->bind('HargaJual',$data['HargaJual']);
+		$this->db->bind('IdPembelian',$data['IdPembelian']);
+		$this->db->bind('JumlahPembelian', $data['JumlahPembelian']);
+		$this->db->bind('HargaBeli',$data['HargaBeli']);
 		$this->db->bind('IdPengguna',$data['IdPengguna']);
 		$this->db->bind('IdBarang',$data['IdBarang']);
 		$this->db->execute();

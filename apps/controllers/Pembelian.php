@@ -36,19 +36,19 @@ class Pembelian extends Controller
 		$data['barang'] = $this->model('BarangModel')->getAllBarang();
 		$this->view('templates/header', $data);
 		$this->view('templates/sidebar', $data);
-		$this->view('penjualan/create', $data);
+		$this->view('pembelian/create', $data);
 		$this->view('templates/footer');
 	}
 
-	public function simpanPenjualan()
+	public function simpanPembelian()
 	{
-		if ($this->model('PenjualanModel')->tambahPenjualan($_POST) > 0) {
+		if ($this->model('PembelianModel')->tambahPembelian($_POST) > 0) {
 			Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-			header('location: ' . base_url . '/penjualan');
+			header('location: ' . base_url . '/pembelian');
 			exit;
 		} else {
 			Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-			header('location: ' . base_url . '/penjualan');
+			header('location: ' . base_url . '/pembelian');
 			exit;
 		}
 	}
