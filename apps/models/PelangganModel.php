@@ -87,12 +87,12 @@ class PelangganModel {
 	// 	return $this->db->rowCount();
 	// }
 
-	// public function deletePengguna($id)
-	// {
-	// 	$this->db->query('DELETE FROM ' . $this->table . ' WHERE IdPengguna=:IdPengguna');
-	// 	$this->db->bind('IdPengguna',$id);
-	// 	$this->db->execute();
+	public function deletePelanggan($id)
+	{
+		$this->db->query('DELETE FROM ' . $this->table . ' WHERE IdPelanggan=:IdPelanggan');
+		$this->db->bind('IdPelanggan', $id);
+		$this->db->execute();
 
-	// 	return $this->db->rowCount();
-	// }
+		return $this->db->rowCount();
+	}
 }
