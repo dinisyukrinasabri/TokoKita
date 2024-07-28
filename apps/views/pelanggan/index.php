@@ -19,7 +19,6 @@
                                       <th>Nama Belakang</th>
                                       <th>No. HP</th>
                                       <th>Alamat</th>
-                                      <th>ID Akses</th>
                                       <th>Aksi</th>
                                   </tr>
                               </thead>
@@ -34,7 +33,6 @@
                                           <td> <?= $data["NamaBelakang"] ?> </td>
                                           <td> <?= $data["NoHP"] ?> </td>
                                           <td> <?= $data["Alamat"] ?> </td>
-                                          <td> <?= $data["IdAkses"] ?> </td>
                                           <td>
                                               <div class="dropdown">
                                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
