@@ -32,25 +32,25 @@ class Pelanggan extends Controller
 
 	public function tambah()
 	{
-		// $data['title'] = 'Tambah Barang';
-		// $data['pengguna'] = $this->model('PenggunaModel')->getAllSupplier();
-		// $this->view('templates/header', $data);
-		// $this->view('templates/sidebar', $data);
-		// $this->view('barang/create', $data);
-		// $this->view('templates/footer');
+		$data['title'] = 'Tambah Pelanggan';
+		// $data['pelanggan'] = $this->model('PelangganModel')->getAllSupplier();
+		$this->view('templates/header', $data);
+		$this->view('templates/sidebar', $data);
+		$this->view('pelanggan/create', $data);
+		$this->view('templates/footer');
 	}
 
-	public function simpanBarang()
+	public function simpanPelanggan()
 	{
-		// if ($this->model('BarangModel')->tambahBarang($_POST) > 0) {
-		// 	Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// } else {
-		// 	Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// }
+		if ($this->model('PelangganModel')->tambahPelanggan($_POST) > 0) {
+			Flasher::setMessage('Berhasil', 'ditambahkan', 'success');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		} else {
+			Flasher::setMessage('Gagal', 'ditambahkan', 'danger');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		}
 	}
 
 	public function updateBarang()

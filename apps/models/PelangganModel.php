@@ -35,21 +35,20 @@ class PelangganModel {
 	// 	return $this->db->single();
 	// }
 
-	// public function tambahPengguna($data)
-	// {
-	// 	$query = "INSERT INTO pengguna (NamaPengguna,Password,NamaDepan,NamaBelakang,NoHP,Alamat,IdAkses) VALUES(:NamaPengguna,:Password,:NamaDepan,:NamaBelakang,:NoHP,:Alamat,:IdAkses)";
-	// 	$this->db->query($query);
-	// 	$this->db->bind('NamaPengguna',$data['NamaPengguna']);
-	// 	$this->db->bind('Password', md5($data['Password']));
-	// 	$this->db->bind('NamaDepan',$data['NamaDepan']);
-	// 	$this->db->bind('NamaBelakang',$data['NamaBelakang']);
-	// 	$this->db->bind('NoHP',$data['NoHP']);
-	// 	$this->db->bind('Alamat',$data['Alamat']);
-	// 	$this->db->bind('IdAkses',$data['IdAkses']);
-	// 	$this->db->execute();
+	public function tambahPelanggan($data)
+	{
+		$query = "INSERT INTO pelanggan (NamaPelanggan,NamaDepan,NamaBelakang,NoHP,Alamat) VALUES(:NamaPelanggan,:NamaDepan,:NamaBelakang,:NoHP,:Alamat)";
+		$this->db->query($query);
+		$this->db->bind('NamaPelanggan',$data['NamaPelanggan']);
+		$this->db->bind('NamaDepan', $data['NamaDepan']);
+		$this->db->bind('NamaBelakang',$data['NamaBelakang']);
+		$this->db->bind('NoHP',$data['NoHP']);
+		$this->db->bind('Alamat',$data['Alamat']);
+		// $this->db->bind('IdAkses', 10);
+		$this->db->execute();
 
-	// 	return $this->db->rowCount();
-	// }
+		return $this->db->rowCount();
+	}
 
 	// public function cekUsername(){
 	// 	$NamaPengguna = $_POST['NamaPengguna'];
