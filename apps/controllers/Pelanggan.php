@@ -68,14 +68,14 @@ class Pelanggan extends Controller
 
 	public function hapus($id)
 	{
-		// if ($this->model('BarangModel')->deleteBarang($id) > 0) {
-		// 	Flasher::setMessage('Berhasil', 'dihapus', 'success');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// } else {
-		// 	Flasher::setMessage('Gagal', 'dihapus', 'danger');
-		// 	header('location: ' . base_url . '/barang');
-		// 	exit;
-		// }
+		if ($this->model('PelangganModel')->deletePelanggan($id) > 0) {
+			Flasher::setMessage('Berhasil', 'dihapus', 'success');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		} else {
+			Flasher::setMessage('Gagal', 'dihapus', 'danger');
+			header('location: ' . base_url . '/pelanggan');
+			exit;
+		}
 	}
 }
