@@ -4,7 +4,7 @@
                   <!-- Basic Bootstrap Table -->
                   <div class="card">
                       <h5 class="card-header">
-                          <a href="<?= base_url; ?>/barang/tambah" class="btn rounded-pill btn-primary">
+                          <a href="<?= base_url; ?>/barang" class="btn rounded-pill btn-primary">
                               <i class="tf-icons bx bx-arrow-back bx-18px me-2"></i>Back</button>
                           </a>
                           Tambah Barang
@@ -20,7 +20,7 @@
                               <div class="row mb-6">
                                   <label class="col-sm-2 col-form-label" for="basic-default-keterangan">Keterangan</label>
                                   <div class="col-sm-10">
-                                      <textarea name="Keterangan" id="basic-default-keterangan" class="form-control" placeholder="Model ..." aria-label="Model ..." aria-describedby="basic-icon-default-keterangan2"></textarea>
+                                      <textarea name="Keterangan" id="basic-default-keterangan" class="form-control" placeholder="Model ..." aria-label="Model ..." aria-describedby="basic-icon-default-keterangan2" required></textarea>
                                   </div>
                               </div>
                               <div class="row mb-6">
@@ -33,8 +33,8 @@
                               <div class="row mb-6">
                                   <label class="col-sm-2 col-form-label" for="basic-default-nama-pengguna">Nama Pengguna</label>
                                   <div class="col-sm-10">
-                                      <select id="idpengguna" name="IdPengguna" class="form-select">
-                                          <option value="#">Pilih Pengguna</option>
+                                      <select id="idpengguna" name="IdPengguna" class="form-select" required>
+                                          <option value="">Pilih Pengguna</option>
                                           <?php foreach ($data['pengguna'] as $row) : ?>
                                               <option value="<?= $row['IdPengguna']; ?>"><?= $row['NamaPengguna']; ?></option>
                                           <?php endforeach; ?>
@@ -44,7 +44,7 @@
 
                               <div class="row justify-content-end">
                                   <div class="col-sm-10">
-                                      <button type="submit" class="btn btn-primary">Send</button>
+                                      <button type="submit" class="btn btn-primary">Simpan Data</button>
                                   </div>
                               </div>
                           </form>

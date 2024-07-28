@@ -7,7 +7,7 @@
                     document.write(new Date().getFullYear());
                 </script>
                 , made with ❤️ by
-                <a href="#" target="_blank" class="footer-link">Kelompok 4</a>
+                <a href="#" target="_blank" class="footer-link">Kelompok 8</a>
             </div>
         </div>
     </div>
